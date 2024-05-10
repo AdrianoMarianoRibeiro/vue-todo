@@ -15,7 +15,7 @@
       flat 
       subheader
     >
-      <v-subheader>General</v-subheader>
+      <v-subheader><h1>Tarefas</h1></v-subheader>
 
       <v-list-item-group 
         multiple 
