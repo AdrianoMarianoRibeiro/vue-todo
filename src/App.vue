@@ -1,15 +1,12 @@
 <template>
   <v-app id="inspire">
     <!-- <v-navigation-drawer
-      v-model="drawer"
-      app
-    >
-    </v-navigation-drawer> -->
+          v-model="drawer"
+          app
+        >
+        </v-navigation-drawer> -->
 
-    <v-navigation-drawer
-      v-model="drawer"
-      app
-      >
+    <v-navigation-drawer v-model="drawer" app>
       <v-list-item>
         <v-list-item-content>
           <v-list-item-title class="text-h6">
@@ -23,16 +20,8 @@
 
       <v-divider></v-divider>
 
-      <v-list
-        dense
-        nav
-      >
-        <v-list-item
-          v-for="item in items"
-          :key="item.title"
-          :to="item.to"
-          link
-        >
+      <v-list dense nav>
+        <v-list-item v-for="item in items" :key="item.title" :to="item.to" link>
           <v-list-item-icon>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-icon>
@@ -45,23 +34,14 @@
     </v-navigation-drawer>
 
     <!-- <v-app-bar app>
-      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+          <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+    
+          <v-toolbar-title>Application</v-toolbar-title>
+        </v-app-bar> -->
 
-      <v-toolbar-title>Application</v-toolbar-title>
-    </v-app-bar> -->
-
-    <v-app-bar
-      app
-      prominent
-      color="#fcb69f"
-      dark
-      src="./assets/image/bg.jpg"
-    >
+    <v-app-bar app prominent color="#fcb69f" dark src="./assets/image/bg.jpg">
       <template v-slot:img="{ props }">
-        <v-img
-          v-bind="props"
-          gradient="to top right, rgba(19,84,122,.5), rgba(128,208,199,.8)"
-        ></v-img>
+        <v-img v-bind="props" gradient="to top right, rgba(19,84,122,.5), rgba(128,208,199,.8)"></v-img>
       </template>
 
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
@@ -84,7 +64,7 @@
     </v-app-bar>
 
     <v-main>
-     <router-view />
+      <router-view />
     </v-main>
   </v-app>
 </template>
@@ -92,15 +72,21 @@
 <script>
 // import router from './router';
 
-  export default {
-    data: () => (
+export default {
+  data: () => ({
+    drawer: null,
+    items: [
       { 
-        drawer: null,
-        items: [
-          { title: 'Tarefas', icon: 'mdi-view-dashboard', to: '/' },
-          { title: 'Sobre', icon: 'mdi-help-box', to: '/sobre' },
-        ],
+        title: 'Tarefas', 
+        icon: 'mdi-view-dashboard', 
+        to: '/' 
+      },
+      { 
+        title: 'Sobre', 
+        icon: 'mdi-help-box', 
+        to: '/sobre' 
       }
-    ),
-  }
+    ],
+  }),
+}
 </script>

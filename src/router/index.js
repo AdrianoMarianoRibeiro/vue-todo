@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Tarefas from '../views/Tarefas.vue'
+import TarefasView from '../views/TarefasView.vue'
 
 Vue.use(VueRouter)
 
@@ -8,7 +8,7 @@ const routes = [
   {
     path: '/',
     name: 'Tarefas',
-    component: Tarefas
+    component: TarefasView
   },
   {
     path: '/sobre',
