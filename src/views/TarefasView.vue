@@ -23,7 +23,7 @@
       >
 
       <div
-        v-for="tarefa, index in tarefas"
+        v-for="tarefa, index in $store.state.tarefas"
         :key="index"
       >
       <TarefaItem 
@@ -48,32 +48,12 @@ export default {
   data() {
     return  {
       campoInput: null,
-      tarefas: [
-        {
-          titulo: 'Ir ao mercado',
-          concluido: false
-        },
-        {
-          titulo: 'Comprar ração',
-          concluido: false
-        },
-        {
-          titulo: 'Jogar bola',
-          concluido: false
-        }
-      ]
     }
   },
   methods: {
     handleAddTarefa() {
-      if(this.campoInput) {
-        this.tarefas.push({
-          titulo: this.campoInput,
-          concluido: false
-        });
-
-        this.campoInput = null;
-      } 
+      this.$store.commit('adicionarTarefa', this.campoInput);
+      this.campoInput = null;
     }
   }
 }

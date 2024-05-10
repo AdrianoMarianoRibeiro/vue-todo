@@ -15,13 +15,30 @@
           >
             {{ tarefa.titulo }}</v-list-item-title>
         </v-list-item-content>
+
+        <v-list-item-action>
+          <!-- <v-btn 
+            icon
+            @click.stop="handleRemoveTarefa(tarefa.id)"
+          >
+            <v-icon color="red lighten-1">mdi-trash-can</v-icon>
+          </v-btn> -->
+          <TarefaMenu />
+        </v-list-item-action>
       </template>
     </v-list-item>
+    <v-divider></v-divider>
   </div>
 </template>
 
 <script>
+
+import TarefaMenu from './TarefaMenu.vue';
+
 export default {
+  components: {
+    TarefaMenu
+  },
   props: ['tarefa'],
   data() {
     return {
@@ -36,6 +53,9 @@ export default {
     toggleConcluido() {
       // Modifica apenas a cópia local
       this.tarefaLocal.concluido = !this.tarefaLocal.concluido;
+    },
+    handleRemoveTarefa(id) {
+      this.$store.commit('removeTarefa', id);
     }
   }
 }
