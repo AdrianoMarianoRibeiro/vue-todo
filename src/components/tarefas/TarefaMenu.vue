@@ -9,7 +9,10 @@
                 </v-btn>
             </template>
             <v-list>
-                <v-list-item v-for="(item, index) in items" :key="index">
+                <v-list-item v-for="(item, index) in items" 
+                    :key="index"
+                    @click="item.click()"
+                >
                     <span :class="item.color">
                         <v-tooltip left>
                             <template v-slot:activator="{ on }">
@@ -22,27 +25,44 @@
             </v-list>
 
         </v-menu>
-        <ModalEditar />
+        <ModalEditar 
+            v-if="items[0].modal"
+            @fechaModal="items[0].modal = false"
+            :tarefa="tarefa"
+        />
+
+        <ModalDelete 
+            v-if="items[1].modal"
+            @fechaModal="items[1].modal = false"
+            :tarefa="tarefa"
+        />
     </div>
 </template>
 
 <script>
 import ModalEditar from '../modais/ModalEditar.vue';
+import ModalDelete from '../modais/ModalDelete.vue';
 
 export default {
-    components: { ModalEditar },
+    props: ['tarefa'],
+    components: { ModalEditar, ModalDelete },
     data: () => ({
         items: [
             {
                 tooltip: 'Editar',
                 icon: 'mdi-pencil',
+                modal: false,
                 click() {
-
+                    this.modal = true
                 }
             },
             {
                 tooltip: 'Excluir',
                 icon: 'mdi-trash-can',
+                modal: false,
+                click() {
+                    this.modal = true
+                }
             },
         ]
     })

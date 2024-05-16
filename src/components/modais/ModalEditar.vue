@@ -7,24 +7,34 @@
     >
       <v-card>
         <v-card-title class="text-h5">
-          Use Google's location service?
+          Editar
         </v-card-title>
-        <v-card-text>Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.</v-card-text>
+        <v-divider></v-divider>
+        <v-card-text class="mt-2">Informe o novo titulo.</v-card-text>
+
+        <v-text-field
+          label="Titulo"
+          class="px-3"
+          outlined
+          v-model="titulo"
+        >
+
+        </v-text-field>
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn
-            color="green darken-1"
+            color="red darken-1"
             text
-            @click="dialog = false"
+            @click="$emit('fechaModal')"
           >
-            Disagree
+            Cancelar
           </v-btn>
           <v-btn
-            color="green darken-1"
+            color="primary"
             text
-            @click="dialog = false"
+            @click="handleEditar()"
           >
-            Agree
+            Editar
           </v-btn>
         </v-card-actions>
       </v-card>
@@ -34,11 +44,26 @@
 
 <script>
   export default {
+    props: ['tarefa'],
     data () {
       return {
-        dialog: false,
+        dialog: true,
+        titulo: null
       }
     },
+    created() {
+      this.titulo = this.tarefa.titulo;
+    },
+    methods: {
+      handleEditar() {
+        let novaTarefa = {
+          titulo: this.titulo,
+          id: this.tarefa.id
+        };
+        this.$store.commit('editaTarefa', novaTarefa);
+        this.$emit('fechaModal');
+      }
+    }
   }
 </script>
 
