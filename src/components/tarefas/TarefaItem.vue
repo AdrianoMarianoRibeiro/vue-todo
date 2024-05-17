@@ -1,8 +1,8 @@
 <template>
   <div>
     <v-list-item
-    :class="{'blue lighten-4':tarefa.concluido}"
-    @click="$store.dispatch('concluiTarefa', tarefa)"
+      :class="{'blue lighten-4':tarefa.concluido}"
+      @click="$store.dispatch('concluiTarefa', tarefa)"
     >
       <template v-slot:default="{}">
         <v-list-item-action>
@@ -11,13 +11,13 @@
 
         <v-list-item-content>
           <v-list-item-title
-          :class="{'text-decoration-line-through': tarefa.concluido}"
+            :class="{'text-decoration-line-through': tarefa.concluido}"
           >{{tarefa.titulo}}</v-list-item-title>
         </v-list-item-content>
 
         <v-list-item-action>
           <TarefaMenu 
-          :tarefa="tarefa"
+            :tarefa="tarefa"
           />
         </v-list-item-action>
 

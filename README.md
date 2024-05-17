@@ -1,5 +1,9 @@
 # vue-todo
 
+## node v20.12.2
+
+## npm v10.6.0
+
 ## Project setup
 ```
 npm install
