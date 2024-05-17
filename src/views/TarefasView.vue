@@ -50,9 +50,13 @@ export default {
       campoInput: null,
     }
   },
+  created() {
+    this.$store.commit('buscaTarefas');
+  },
   methods: {
     handleAddTarefa() {
-      this.$store.commit('adicionarTarefa', this.campoInput);
+      // this.$store.commit('adicionaTarefa', this.campoInput);
+      this.$store.dispatch('adicionaTarefa', this.campoInput);
       this.campoInput = null;
     }
   }
