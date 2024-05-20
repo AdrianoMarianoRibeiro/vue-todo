@@ -9,7 +9,7 @@
       src="./assets/bg.jpg"
       gradient="to top right, rgba(19,84,122,.5), rgba(28,108,199,.8)"
       dark
-      class="pt-5 text-center"
+      class="pt-3 text-center"
     >
       <v-avatar
         size="100"

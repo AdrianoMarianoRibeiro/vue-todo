@@ -3,29 +3,14 @@
     <h1>Sobre</h1>
       <p>
         Essa é uma lista de tarefas desenvolvida para fins didáticos
-        com Vue.js. Você pode acompanhar o passo a passo para a criação desse 
-        projeto em uma playlist gratúita que está no YouTube:
+        com Vue.js.
       </p>
-      <center>
-        <iframe 
-        min-width="100%"
-        max-height="315"
-        
-        style="border-radius: 10px"
-        src="https://www.youtube.com/embed/fL2BAYzCIZs" 
-        title="Playlist do YouTube" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen></iframe>
-      </center>
       <p>  
-        Utilizamos diversas ferramentas
-        atuais(contexto de 2021) e muito utilizadas no mercado de trabalho.
-
+        Utilizamos uma variedade de ferramentas amplamente reconhecidas e valorizadas no mercado de trabalho.
         Algumas ferramentas utilizadas aqui foram:
       </p>
       <v-list>
-      <template v-for="(item) in tacnologias">
+      <template v-for="(item) in tecnologias">
 
         <v-list-item
           :key="item.titulo"
@@ -46,9 +31,8 @@
         <v-card-title>Obrigado por prestigiar o projeto!!!</v-card-title>
         <v-card-subtitle >Contato:</v-card-subtitle>
         <v-card-text>
-        <strong>📨E-mail:</strong> yuri.erik.oliveira@gmail.com<br>
-        <strong>🧑‍💻 Yuri Marcon</strong><br>
-        <img src="../assets/octocat.png" height="20px" alt="imagem octocat" /> <a href="https://github.com/yurimarcon">/yurimarcon</a>
+        <strong>🧑‍💻 Adriano Ribeiro</strong><br>
+        <img src="../assets/octocat.png" height="20px" alt="imagem octocat" /> <a href="https://github.com/AdrianoMarianoRibeiro/vue-todo/tree/master">/AdrianoMarianoRibeiro</a>
         </v-card-text>
       </p>
     </section>
@@ -61,13 +45,13 @@
 export default {
   data() {
     return{
-      tacnologias:[
+      tecnologias:[
         {
           titulo: "HTML",
           icon: "mdi-language-html5"
         },
         {
-          titulo: "Vue.js",
+          titulo: "Vue.js 2",
           icon: "mdi-vuejs"
         },
         {
@@ -91,20 +75,12 @@ export default {
           icon: "mdi-transition"
         },
         {
-          titulo: "Drag and Drop",
-          icon: "mdi-drag-variant"
-        },
-        {
           titulo: "Git",
           icon: "mdi-git"
         },
         {
           titulo: "GitHub",
           icon: "mdi-github"
-        },
-        {
-          titulo: "Netlify",
-          icon: "mdi-web"
         },
       ]
     }
